@@ -99,3 +99,123 @@ theOtherCar.year = 1989;
 theOtherCar
 
 print(theOtherCar.year);
+
+
+function Car() { }
+Car.prototype.current_speed = 0;
+Car.prototype.accelerate = function(increment) {
+    this.current_speed += increment;
+}
+ 
+var myCar = new Car();
+myCar.accelerate(30);
+myCar.accelerate(20);
+myCar.accelerate(20);
+ 
+//print(JSON.stringify(myCar));
+
+function Car(reg_no) { 
+    this.reg_no = reg_no;
+   // print('Car with registration no. '+this.reg_no+' created.');
+}
+ 
+Car.prototype.reg_no = '';
+Car.prototype.current_speed = 0;
+Car.prototype.accelerate = function(increment) {
+    this.current_speed += increment;
+}
+ 
+var myCar = new Car('10C500');
+myCar.accelerate(30);
+myCar.accelerate(20);
+
+var myCar2 = new Car('10C570');
+myCar.accelerate(30);
+myCar.accelerate(20);
+ 
+//print(myCar.current_speed);
+//print(myCar2.current_speed);
+
+function Car3() { }
+Car3.prototype.current_speed = 0;
+Car3.prototype.accelerate = function(increment) {
+    this.current_speed += increment;
+}
+Car3.prototype.decelerate = function(decrement) {
+    this.current_speed -= decrement;
+}
+ 
+var myCar3 = new Car3();
+myCar3.accelerate(30);
+myCar3.accelerate(220);
+myCar3.decelerate(20);
+ 
+print(JSON.stringify(myCar3));
+
+if (typeof Object.create !== 'function') {
+  Object.create = function (parent) {
+    function Tmp() {}
+    Tmp.prototype = parent;
+    return new Tmp();
+  };
+}
+
+const Parent = function() {
+  this.name = "Parent";
+}
+
+Parent.prototype.greet = function() { return "hello from Parent"; }
+
+Parent.prototype.speak = function() { return "coming"; }
+
+Parent.prototype.answer = function() { return "are you hugry";}
+
+const child = Object.create(Parent.prototype);
+
+Parent.prototype.cry = function() {
+  return "waaaaaahhhh!";
+}
+
+print(child.cry());
+// Outputs: waaaaaahhhh!
+
+print(child.greet());
+// Outputs: hello from Parent
+
+print(child.speak());
+
+function Child() {
+  Parent.call(this);
+  this.name = 'child';
+}
+
+//function Mother() {
+//    Parent.call(this);
+//    this.parentName = 'mother';
+//}
+
+//Mother.prototype = Parent.prototype;
+//Mother.prototype.constructor = mother;
+
+Child.prototype = Parent.prototype;
+Child.prototype.constructor = child;
+
+const c = new Child();
+
+const m = new Child();
+
+//const m = new Child();
+
+print(c.cry());
+// Outputs: waaaaaahhhh!
+
+print(c.greet());
+// Outputs: hello from Parent
+
+print(c.speak());
+// Outputs: "Child"
+
+print(m.greet());
+
+print(m.answer());
+
