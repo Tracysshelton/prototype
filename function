@@ -1,0 +1,101 @@
+function fastCars() {}
+fastCars.prototype.current_speed = 0;
+fastCars.prototype.accelerate = function(increment){
+    this.current_speed += increment;
+}
+fastCars.prototype.deccelerate = function(decrement){
+    this.current_speed -= decrement;
+}
+
+var vette = new fastCars();
+var hellcat = new fastCars()
+
+vette.accelerate(60);
+vette.accelerate(30);
+vette.accelerate(40);
+vette.deccelerate(55);
+
+hellcat.accelerate(60);
+hellcat.accelerate(130);
+hellcat.accelerate(40);
+hellcat.deccelerate(75);
+//otherCar.accelerate(75);
+//otherCar.accelerate(10);
+//otherCar.accelerate(15);
+//otherCar.deccelerte(80);
+
+print(JSON.stringify(vette));
+print(JSON.stringify(hellcat));
+//print(JSON.stringify(otherCar));
+
+function Car() { }
+Car.prototype.current_speed = 0;
+Car.prototype.accelerate = function(increment) {
+    this.current_speed += increment;
+}
+Car.prototype.decelerate = function(decrement) {
+    this.current_speed -= decrement;
+}
+ 
+var myCar1 = new Car();
+myCar1.accelerate(30);
+myCar1.accelerate(220);
+myCar1.decelerate(20);
+
+var myCar2 = new Car();
+myCar2.accelerate(30);
+myCar2.accelerate(240);
+myCar2.decelerate(20);
+ 
+print(JSON.stringify(myCar1));
+print(JSON.stringify(myCar2));
+
+var car = {
+  make: "Ford",
+  model: "Explorer",
+  year: 2008,
+  color: "red",
+  fuel: "gas",
+  mpg: 18
+}
+
+
+
+function Car(make, model, year, color, fuel, mpg) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.color = color;
+  this.fuel = fuel;
+  this.mpg = mpg;
+}
+
+var myCar = new Car("Toyota", "Camry", 2010, "black", "gas", 32);
+
+print(JSON.stringify(myCar));
+
+
+function styleofCar() {}
+styleofCar.prototype.features = function(make, model, year, color, fuel, mpg){
+    this.make = make;
+  this.model = model;
+  this.year = year;
+  this.color = color;
+  this.fuel = fuel;
+  this.mpg = mpg;
+}
+
+var theCar = new styleofCar();
+theCar.features("Toyota", "Camry", 2010, "black", "alchol", 32);
+
+theCar.year = 2001;
+theCar.fuel = "diesal";
+
+print(JSON.stringify(theCar));
+print(theCar.make);
+
+var theOtherCar = new styleofCar();
+theOtherCar.year = 1989;
+theOtherCar
+
+print(theOtherCar.year);
